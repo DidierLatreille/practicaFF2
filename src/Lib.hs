@@ -16,7 +16,7 @@ propinaConservadora :: CriterioPropina
 propinaConservadora costoComida | (even . floor) costoComida = 20
                                 | otherwise = 20 + 5
 
-propinaTioCarlos :: NombreMozo -> CriterioPropina
+propinaTioCarlos :: NombreMozo -> Double -> Double
 propinaTioCarlos "carlos"  = (* 2) . propinaRecomendada
 propinaTioCarlos nombreMozo  = (/ 2) . propinaRecomendada
 
