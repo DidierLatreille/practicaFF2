@@ -7,19 +7,18 @@ type NombreMozo = String
 type CriterioPropina = Double -> Double
 
 propinaRecomendada :: CriterioPropina
-propinaRecomendada costoComida = costoComida * 0.1
+propinaRecomendada = (0.1 * )
 
 propinaMrPink :: CriterioPropina
 propinaMrPink _ = 0
 
 propinaConservadora :: CriterioPropina
-propinaConservadora costoComida
-  | (even . floor) costoComida = 20
-  | otherwise                  = 20 + 5
+propinaConservadora costoComida | (even . floor) costoComida = 20
+                                | otherwise = 20 + 5
 
 propinaTioCarlos :: NombreMozo -> CriterioPropina
-propinaTioCarlos "carlos"  costoComida = ((* 2) . propinaRecomendada) costoComida
-propinaTioCarlos nombreMozo costoComida = ((/ 2) . propinaRecomendada) costoComida
+propinaTioCarlos "carlos"  = (* 2) . propinaRecomendada
+propinaTioCarlos nombreMozo  = (/ 2) . propinaRecomendada
 
 costoTotal :: CriterioPropina -> Double -> Double
 costoTotal propina costoComida = costoComida + propina costoComida
