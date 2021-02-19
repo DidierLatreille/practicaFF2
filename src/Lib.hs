@@ -34,4 +34,4 @@ propinaSegunCosto costoComida | costoComida <= 500 = ((3*).propinaRecomendada) c
                               | otherwise = 0
 
 mozoSatisfecho :: CriterioPropina -> Double -> Bool
-mozoSatisfecho propina costoComida = propina costoComida >= costoComida * 0.15
+mozoSatisfecho propina costoComida = propina costoComida > (costoTotal propina costoComida) * 0.15

@@ -50,7 +50,7 @@ main = hspec $ do
       it "costoTotal con 'costoComida 100' y propinaRecomendada = 110" $ do
          costoTotal propinaRecomendada 100 `shouldBe` 110
 
-      it "costoTotal con 'costoComida 200', propinaTioCarlos y el mozo se llama Juan = 210 " $ do
+      it "costoTotal con 'costoComida 200', propinaTioCarlos y el mozo se llama juan = 210 " $ do
          costoTotal (propinaTioCarlos "juan") 200 `shouldBe` 210
    
    describe "mozoSatisfecho" $ do
@@ -61,4 +61,9 @@ main = hspec $ do
       it "Mozo NO satisfecho con propinaSegunCosto y 'costoComida 900'" $ do
          mozoSatisfecho propinaSegunCosto 900 `shouldBe` False
 
+      it "Mozo NO satisfecho con propinaTioCarlos con mozo juan y 'costoComida 200'" $ do
+         mozoSatisfecho (propinaTioCarlos "juan") 200 `shouldBe` False
+
+      it "Mozo satisfecho con propinaTioCarlos con Mozo Juan y 'costoComida 200'" $ do
+         mozoSatisfecho (propinaTioCarlos "carlos") 200 `shouldBe` True
 
